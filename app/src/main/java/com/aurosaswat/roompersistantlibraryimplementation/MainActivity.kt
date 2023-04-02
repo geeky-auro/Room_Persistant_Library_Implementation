@@ -2,6 +2,9 @@ package com.aurosaswat.roompersistantlibraryimplementation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import androidx.lifecycle.Observer
 import androidx.room.Room
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -37,5 +40,17 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+
+
+    }
+
+    fun getData(view: View){
+//        We will be using observe method becoz the return type of getContact is LiveData
+//        The observer{} will observe that whenever we will have changes in our database or new method is called then this method will be automatically called ;
+        database.contactDao().getContact().observe(this, Observer {
+            Log.d("MainActiauro",it.toString())
+//            So in this way we use getMethods ;)
+        })
     }
 }
