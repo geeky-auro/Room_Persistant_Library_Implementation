@@ -27,13 +27,13 @@ class MainActivity : AppCompatActivity() {
 //        Here contactDB is the name of the Database ;)
 
 //        Not this is not a good approach generally we make use of singleton ;)
-        database=Room.databaseBuilder(applicationContext,
-        ContactDatabase::class.java,
-        "contactDB").build()
+
 
         GlobalScope.launch {
             database.contactDao().insertContact(Contact(0,"Auro","8249696287"))
         }
+
+
 
 
 
